@@ -8,10 +8,10 @@ import { Poppins } from "next/font/google";
 const poppins = Poppins({ subsets: ["latin"], weight: '400' });
 
 export default function App({ Component, pageProps: { session, ...pageProps } }) {
-  return <main className={poppins.className}>
+  return <main className={`px-5 ${poppins.className}`}>
     <SessionProvider session={session}>
       <Header/>
-      <Component {...pageProps} />;
+      <Component {...pageProps} />
     </SessionProvider>
   </main>;
 }

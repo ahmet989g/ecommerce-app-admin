@@ -1,8 +1,15 @@
 import { useSession } from "next-auth/react"
 import Link from "next/link"
+import { useRouter } from "next/router";
 
 export default function Header() {
-    const { data: session } = useSession()
+    const { data: session } = useSession();
+
+    const router = useRouter();
+    const { pathname } = router;
+
+    const active = 'text-green-500 transition hover:text-green-500/75 p-2 bg-gray-200 rounded-md';
+    const inactive = 'text-gray-500 transition hover:text-gray-500/75 p-2';
 
     if (session) {
         return <>
@@ -22,19 +29,19 @@ export default function Header() {
                         <nav aria-label="Global" className="hidden md:block">
                             <ul className="flex items-center gap-6 text-lg">
                                 <li>
-                                    <Link className="text-gray-500 transition hover:text-gray-500/75" href="/"> Dashboard </Link>
+                                    <Link className={location.pathname === '/' ? active : inactive } href="/"> Dashboard </Link>
                                 </li>
                                 <li>
-                                    <Link className="text-gray-500 transition hover:text-gray-500/75" href="/"> Ürünler </Link>
+                                    <Link className={location.pathname === '/urunler' ? active : inactive} href="/urunler"> Ürünler </Link>
                                 </li>
                                 <li>
-                                    <Link className="text-gray-500 transition hover:text-gray-500/75" href="/"> Kategoriler </Link>
+                                    <Link className={location.pathname === '/kategoriler' ? active : inactive} href="/kategoriler"> Kategoriler </Link>
                                 </li>
                                 <li>
-                                    <Link className="text-gray-500 transition hover:text-gray-500/75" href="/"> Siparişler </Link>
+                                    <Link className={location.pathname === '/siparisler' ? active : inactive} href="/siparisler"> Siparişler </Link>
                                 </li>
                                 <li>
-                                    <Link className="text-gray-500 transition hover:text-gray-500/75" href="/"> Ayarlar </Link>
+                                    <Link className={location.pathname === '/ayarlar' ? active : inactive} href="/ayarlar"> Ayarlar </Link>
                                 </li>
                             </ul>
                         </nav>
