@@ -9,7 +9,7 @@ export default function Home() {
   if (session) {
     return <>
       <header>
-        <div className="mx-auto max-w-screen-xl px-4 py-8 sm:px-6 sm:py-12 lg:px-8">
+        <div className="mx-auto max-w-screen-6xl py-8 sm:py-12">
           <div className="sm:flex sm:items-center sm:justify-between">
             <div className="text-center sm:text-left">
               <h1 className="text-3xl font-bold text-gray-900 sm:text-3xl">Hoşgeldin, <span className="text-green-700">{session.user.name}!</span></h1>
@@ -18,7 +18,7 @@ export default function Home() {
             <div className="mt-4 flex flex-col gap-4 sm:mt-0 sm:flex-row sm:items-center">
               <Link
                 className="inline-flex items-center justify-center gap-1.5 rounded-lg border border-gray-200 px-5 py-3 text-gray-500 transition hover:bg-gray-50 hover:text-gray-700 focus:outline-none focus:ring"
-                href={'/urunler'}
+                href={'/products'}
               >
                 <span className="text-sm font-medium"> Ürünler </span>
 
@@ -60,7 +60,7 @@ export default function Home() {
         <h1 className="text-4xl font-bold max-w-lg text-center">Admine Hoşgeldiniz</h1>
         <p className="my-5 font-medium">Bu sayfayı görüntülemek için bir hesap gerekli.</p>
         <button onClick={() => signIn('google')}
-          class="inline-block rounded bg-blue-600 px-8 py-3 text-sm font-medium text-white transition hover:scale-110 hover:shadow-xl focus:outline-none focus:ring active:bg-blue-500"
+          className="inline-block rounded bg-blue-600 px-8 py-3 text-sm font-medium text-white transition hover:scale-110 hover:shadow-xl focus:outline-none focus:ring active:bg-blue-500"
           href="#"
         >
           Google ile Giriş Yap
